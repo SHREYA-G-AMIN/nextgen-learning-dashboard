@@ -2,22 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import * as Icons from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { Course } from "@/types/course";
+import { iconMap } from "@/utils/iconMap";
 
 interface CourseCardProps {
   course: Course;
   index: number;
 }
-
-// Map Lucide icons safely so that tree shaking remains functional and clean
-const ICON_MAP: Record<string, React.ComponentType<any>> = {
-  Layers: Icons.Layers,
-  Cpu: Icons.Cpu,
-  Zap: Icons.Zap,
-  Database: Icons.Database,
-  BookOpen: Icons.BookOpen,
-};
 
 export default function CourseCard({ course, index }: CourseCardProps) {
   const [coords, setCoords] = useState({ x: 50, y: 50 });
@@ -31,7 +23,7 @@ export default function CourseCard({ course, index }: CourseCardProps) {
   ];
 
   const theme = palettes[index % palettes.length];
-  const IconComponent = ICON_MAP[course.icon_name] || Icons.BookOpen;
+  const IconComponent = iconMap[course.icon_name] || BookOpen;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();

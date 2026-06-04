@@ -26,7 +26,7 @@ export const bentoItemVariants = {
 
 export default function BentoGrid({ courses }: BentoGridProps) {
   // Let's greet a mock student name
-  const studentName = "Julian";
+  const studentName = "SHREYA";
   const streakCount = 18; // Daily learning streak indicator
 
   return (

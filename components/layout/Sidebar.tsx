@@ -86,11 +86,11 @@ export default function Sidebar() {
         <div className="border-t border-zinc-900/80 pt-4 flex items-center gap-3 px-2">
           <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-violet-500 to-fuchsia-500 p-[1.5px]">
             <div className="w-full h-full rounded-full bg-zinc-950 flex items-center justify-center text-xs font-bold text-white">
-              JD
+              SGA
             </div>
           </div>
           <div className="hidden lg:flex flex-col overflow-hidden">
-            <span className="font-semibold text-xs text-zinc-200 truncate">Julian Drake</span>
+            <span className="font-semibold text-xs text-zinc-200 truncate">SHREYA G AMIN</span>
             <span className="text-[10px] text-zinc-500 font-mono truncate">Beta Learner</span>
           </div>
         </div>

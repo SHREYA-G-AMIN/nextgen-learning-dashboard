@@ -18,7 +18,7 @@ https://github.com/SHREYA-G-AMIN/nextgen-learning-dashboard
 
 ## 📸 Preview
 
-![Uploading image.png…]()
+<img width="1907" height="1021" alt="image" src="https://github.com/user-attachments/assets/f9a674ac-8646-4109-b863-1d92173b7de6" />
 
 
 ---

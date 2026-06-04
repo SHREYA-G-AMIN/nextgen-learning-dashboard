@@ -1,36 +1,338 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next-Gen Learning Dashboard
 
-## Getting Started
+A high-fidelity, futuristic student dashboard built with **Next.js App Router**, **TypeScript**, **Supabase**, **Tailwind CSS v4**, and **Framer Motion**.
 
-First, run the development server:
+The application showcases modern frontend engineering practices, including **Server Components**, **responsive Bento Grid layouts**, **smooth hardware-accelerated animations**, and **secure server-side data fetching**.
+
+---
+
+## 🚀 Live Demo
+
+**Vercel Deployment:**  
+https://nextgen-learning-dashboard-fawn.vercel.app/
+
+**GitHub Repository:**  
+https://github.com/SHREYA-G-AMIN/nextgen-learning-dashboard
+
+---
+
+## 📸 Preview
+
+![Uploading image.png…]()
+
+
+---
+
+## ✨ Features
+
+### Dashboard Experience
+- Modern Bento Grid layout
+- Dark-mode-only premium UI
+- Responsive design across desktop, tablet, and mobile
+- Learning streak overview
+- Dynamic course progress tracking
+- Activity contribution graph
+
+### Data Architecture
+- Supabase PostgreSQL integration
+- Server-side data fetching using Next.js App Router
+- Type-safe data models
+- Graceful fallback handling
+- Environment variable security
+
+### Animations
+- Staggered page entrance animations
+- Spring-based hover interactions
+- Animated progress bars
+- Layout transitions using Framer Motion
+- Zero-layout-shift animation strategy
+
+### User Experience
+- Loading skeletons
+- Error boundaries
+- Responsive navigation
+- Semantic HTML structure
+- Accessibility-focused component design
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js 15 (App Router)
+- React
+- TypeScript
+- Tailwind CSS v4
+
+### Backend / Data
+- Supabase
+- PostgreSQL
+
+### Animation
+- Framer Motion
+
+### Icons
+- Lucide React
+
+### Deployment
+- Vercel
+
+---
+
+## 🏗️ Architecture
+
+### Server Components
+
+The dashboard uses **React Server Components (RSC)** for data fetching.
+
+Benefits:
+
+- Reduced client-side JavaScript
+- Faster initial page loads
+- Secure database communication
+- Improved performance
+
+```txt
+app/page.tsx
+        │
+        ▼
+Supabase Query
+        │
+        ▼
+Server Component
+        │
+        ▼
+DashboardClient
+        │
+        ▼
+Interactive UI Components
+```
+
+---
+
+### Client Components
+
+Client Components are used only where interactivity is required:
+
+| Component | Purpose |
+|------------|----------|
+| Sidebar | Navigation interactions |
+| DashboardClient | Staggered animations |
+| CourseCard | Progress animations |
+| ActivityCard | Interactive graph |
+
+This separation keeps the application performant while maintaining a smooth user experience.
+
+---
+
+## 📂 Project Structure
+
+```txt
+nextgen-learning-dashboard/
+│
+├── app/
+│   ├── page.tsx
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   ├── error.tsx
+│   └── globals.css
+│
+├── components/
+│   ├── dashboard/
+│   │   ├── DashboardClient.tsx
+│   │   ├── BentoGrid.tsx
+│   │   ├── HeroCard.tsx
+│   │   ├── CourseCard.tsx
+│   │   └── ActivityCard.tsx
+│   │
+│   ├── layout/
+│   │   └── Sidebar.tsx
+│   │
+│   └── ui/
+│
+├── lib/
+│   └── supabase.ts
+│
+├── types/
+│   └── course.ts
+│
+├── utils/
+│   └── iconMap.ts
+│
+├── public/
+│
+├── .env.example
+└── README.md
+```
+
+---
+
+## 🗄️ Database Schema
+
+### Courses Table
+
+```sql
+create table courses (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  progress integer not null,
+  icon_name text not null,
+  created_at timestamp default now()
+);
+```
+
+### Sample Data
+
+```sql
+insert into courses
+(title, progress, icon_name)
+values
+('Advanced React Patterns', 75, 'Code'),
+('Next.js Mastery', 60, 'Layers'),
+('TypeScript Pro', 85, 'FileCode'),
+('System Design Basics', 40, 'Network');
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+Refer to `.env.example` for the required variables.
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/your-username/nextgen-learning-dashboard.git
+
+cd nextgen-learning-dashboard
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+Create:
+
+```bash
+.env.local
+```
+
+Add your Supabase credentials.
+
+### Start Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Application will run on:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚢 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push code to GitHub
+2. Import repository into Vercel
+3. Configure environment variables
+4. Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🎯 Design Decisions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Why Server Components?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Using Server Components allows data fetching to occur on the server, reducing client bundle size and improving performance.
+
+### Why Framer Motion?
+
+Framer Motion provides:
+
+- Hardware-accelerated animations
+- Spring physics
+- Layout animations
+- High performance without causing layout shifts
+
+### Why Bento Grid?
+
+Bento layouts provide:
+
+- Better information hierarchy
+- Modern visual appearance
+- Flexible responsiveness
+- Improved content discoverability
+
+---
+
+## 📈 Performance Considerations
+
+- Server-side data fetching
+- Minimal client-side JavaScript
+- Lazy-loaded interactive components
+- Transform and opacity-only animations
+- Responsive image and asset strategy
+- Optimized rendering using React Server Components
+
+---
+
+## 🧪 Future Improvements
+
+- Authentication with Supabase Auth
+- Real student activity analytics
+- Course completion certificates
+- Notifications system
+- Theme customization
+- Real-time updates using Supabase Realtime
+
+---
+
+## 📝 Challenges & Learnings
+
+During development, key challenges included:
+
+- Designing a responsive Bento Grid layout
+- Implementing Server Component and Client Component boundaries
+- Managing smooth Framer Motion animations without layout shifts
+- Creating reusable and scalable UI components
+- Integrating Supabase securely with Next.js App Router
+
+These challenges helped reinforce best practices around modern React architecture, performance optimization, and scalable frontend development.
+
+---
+
+## 👨‍💻 Author
+
+**Shreya G Amin**
+
+Computer Science Student | Full Stack & Frontend Development Enthusiast
+
+GitHub: https://github.com/SHREYA-G-AMIN
+
+LinkedIn: https://www.linkedin.com/in/shreya-g-amin/
+
+---
+
+## 📄 License
+
+This project was developed as part of a Frontend Internship Assignment and is intended for educational and evaluation purposes.

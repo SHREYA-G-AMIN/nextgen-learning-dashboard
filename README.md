@@ -213,7 +213,7 @@ Refer to `.env.example` for the required variables.
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/nextgen-learning-dashboard.git
+git clone https://github.com/SHREYA-G-AMIN/nextgen-learning-dashboard.git
 
 cd nextgen-learning-dashboard
 ```
